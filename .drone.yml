@@ -25,4 +25,4 @@ steps:
         path: /root
     
     commands:
-      - docker build
+      - make push
