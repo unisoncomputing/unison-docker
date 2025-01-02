@@ -17,7 +17,7 @@ volumes:
 
 steps:
   - name: build
-    image: 
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:55
     volumes:
       - name: docker_sock
         path: /var/run/docker.sock
