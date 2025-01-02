@@ -1,0 +1,28 @@
+---
+kind: pipeline
+type: docker
+name: ci
+
+trigger:
+  ref:
+    - refs/heads/trunk
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
+  - name: root_home
+    host:
+      path: /root
+
+steps:
+  - name: build
+    image: 
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
+      - name: root_home
+        path: /root
+    
+    commands:
+      - docker build
