@@ -11,7 +11,7 @@ build: Dockerfile Makefile
 	docker tag $(docker_tag) $(docker_latest)
 
 push: build
-	docker login -u $(docker_username) -p $(docker_password)
+	docker login -u $(docker_username) -p ${docker_password}
 	docker push $(docker_tag)
 	docker push $(docker_latest)
 
