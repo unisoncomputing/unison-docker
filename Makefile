@@ -1,4 +1,5 @@
 version := 0.5.29
+docker_username := unisonlang
 docker_image := unisonlang/unison
 docker_tag := $(docker_image):$(version)
 docker_latest := $(docker_image):latest
@@ -10,6 +11,7 @@ build: Dockerfile Makefile
 	docker tag $(docker_tag) $(docker_latest)
 
 push: build
+	docker login -u $(docker_username) -p $(docker_password)
 	docker push $(docker_tag)
 	docker push $(docker_latest)
 
