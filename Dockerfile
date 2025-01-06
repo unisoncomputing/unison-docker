@@ -17,8 +17,12 @@ RUN adduser --disabled-password --home /home/unison unison &&\
     ucm --codebase-create /codebase &&\
     apt-get clean &&\
     rm -rf /var/lib/apt/lists/*
+
 ENV UCM_PORT=8080
 ENV UCM_TOKEN=public
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 EXPOSE 8080
 WORKDIR /home/unison
 USER unison
