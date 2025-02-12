@@ -104,7 +104,6 @@ t4tr0m1vok5sbkk91g1qcr2og9pit3rp8ceeq752r8/HEAD
 ...
 ```
 
-
 So now, outside of the docker container, you can use your local editor to create a file ending in `.u` in your new `codebase` directory and `ucm` will pick up the changes:
 
 Outside the container, run:
