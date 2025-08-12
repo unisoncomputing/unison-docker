@@ -1,4 +1,4 @@
-version := 0.5.43
+version := 0.5.45
 docker_username := unisonlang
 docker_image := unisonlang/unison
 docker_tag := $(docker_image):$(version)
