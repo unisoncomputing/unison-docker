@@ -9,8 +9,9 @@ COPY backports.list /etc/apt/sources.list.d/backports.list
 RUN adduser --disabled-password --home /home/unison unison &&\
     install -d -o unison -g unison /codebase &&\
     ln -s /codebase /home/unison/.unison &&\
+    ldconfig &&\
     apt-get update &&\
-    apt-get -y -t bookworm-backports install fzf unisonweb=${UCM_VERSION} &&\
+    apt-get -y install fzf unisonweb=${UCM_VERSION} &&\
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
     dpkg-reconfigure --frontend=noninteractive locales &&\
     update-locale LANG=en_US.UTF-8 &&\
