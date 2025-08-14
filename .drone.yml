@@ -1,7 +1,11 @@
 ---
 kind: pipeline
 type: docker
-name: ci
+name: ci-amd64
+
+platform:
+  os: linux
+  arch: amd64
 
 trigger:
   ref:
@@ -17,7 +21,7 @@ volumes:
 
 steps:
   - name: build
-    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:55
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:63
     environment:
       docker_password:
         from_secret: docker_password
@@ -29,3 +33,41 @@ steps:
     
     commands:
       - make push
+
+---
+
+kind: pipeline
+type: docker
+name: ci-arm64
+
+platform:
+  os: linux
+  arch: arm64
+
+trigger:
+  ref:
+    - refs/heads/trunk
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
+  - name: root_home
+    host:
+      path: /root
+
+steps:
+  - name: build
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:63
+    environment:
+      docker_password:
+        from_secret: docker_password
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
+      - name: root_home
+        path: /root
+    
+    commands:
+      - make push
+
