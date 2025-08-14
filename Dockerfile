@@ -2,7 +2,7 @@ FROM debian:trixie
 
 ARG UCM_VERSION
 
-RUN apt-get update && apt-get install -y apt-transport-https ca-certificates
+RUN apt-get update && apt-get install -y adduser apt-transport-https ca-certificates
 COPY public.gpg /etc/apt/trusted.gpg.d/unison-computing.gpg
 COPY unison-computing.list /etc/apt/sources.list.d/unison-computing.list
 COPY backports.list /etc/apt/sources.list.d/backports.list
