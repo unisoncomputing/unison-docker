@@ -21,7 +21,7 @@ volumes:
 
 steps:
   - name: build
-    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:63
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:65
     environment:
       docker_password:
         from_secret: docker_password
@@ -58,7 +58,7 @@ volumes:
 
 steps:
   - name: build
-    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:63
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:65
     environment:
       docker_password:
         from_secret: docker_password
