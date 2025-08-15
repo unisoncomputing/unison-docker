@@ -1,7 +1,7 @@
 version := 0.5.45
 docker_username := unisonlang
 docker_image := unisonlang/unison
-arch:=$(shell uname -m)
+arch:=$(shell uname -m | sed 's/aarch64/arm64/;s/x86_64/amd64/')
 docker_tag := $(docker_image):$(version)-$(arch)
 docker_latest := $(docker_image):latest-$(arch)
 
