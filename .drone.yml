@@ -1,7 +1,7 @@
 ---
 kind: pipeline
 type: docker
-name: ci-amd64
+name: release-amd64
 
 platform:
   os: linux
@@ -38,7 +38,7 @@ steps:
 
 kind: pipeline
 type: docker
-name: ci-arm64
+name: release-arm64
 
 platform:
   os: linux
@@ -71,3 +71,33 @@ steps:
     commands:
       - make push
 
+---
+
+kind: pipeline
+type: docker
+name: publish-manifest
+
+trigger:
+  ref:
+    - refs/heads/trunk
+    - refs/tags/**
+
+depends_on: [ release-amd64, release-arm64 ]
+steps:
+  - name: stitch
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:83
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
+      - name: root_home
+        path: /root
+
+    commands:
+      - make stitch
+volumes:
+    - name: docker_sock
+      host:
+        path: /var/run/docker.sock
+    - name: root_home
+      host:
+        path: /root
