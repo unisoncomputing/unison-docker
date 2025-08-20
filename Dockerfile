@@ -1,4 +1,4 @@
-FROM debian:trixie
+FROM debian:bookworm
 
 ARG UCM_VERSION
 
