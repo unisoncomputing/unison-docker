@@ -1,1 +1,1 @@
-deb [signed-by=/etc/apt/trusted.gpg.d/unison-computing.gpg] https://debian.unison-lang.org/ bookworm main
+deb [signed-by=/etc/apt/trusted.gpg.d/unison-computing.gpg] https://debian.unison-lang.org/ trixie main
