@@ -21,7 +21,7 @@ volumes:
 
 steps:
   - name: build
-    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:83
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:86
     environment:
       docker_password:
         from_secret: docker_password
@@ -58,7 +58,7 @@ volumes:
 
 steps:
   - name: build
-    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:83
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:86
     environment:
       docker_password:
         from_secret: docker_password
@@ -85,7 +85,7 @@ trigger:
 depends_on: [ release-amd64, release-arm64 ]
 steps:
   - name: stitch
-    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:83
+    image: 324181518966.dkr.ecr.us-west-2.amazonaws.com/docker-builder:86
     volumes:
       - name: docker_sock
         path: /var/run/docker.sock
