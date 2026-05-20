@@ -1,4 +1,4 @@
-version := 1.2.0
+version := 1.3.0
 docker_username := unisonlang
 docker_image := unisonlang/unison
 arch:=$(shell uname -m | sed 's/aarch64/arm64/;s/x86_64/amd64/')
